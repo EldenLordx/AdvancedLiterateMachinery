@@ -6,7 +6,7 @@
 import sys
 import numpy as np
 
-from rapid_latex_ocr import LatexOCR
+from rapid_latex_ocr import LaTeXOCR
 
 class FormulaRecognition(object):
     """
@@ -26,12 +26,12 @@ class FormulaRecognition(object):
         # initialize and launch module
         if configs['from_modelscope_flag'] is True:
             self.formula_recognizer = None # (20231122) currently we only support models from https://github.com/RapidAI/RapidLatexOCR
-        else:  # (20231122) currently we only support models from https://github.com/RapidAI/RapidLatexOCR
+        else:  # (20231122) currently we only support models from https://github.com/RapidAI/Rapid
             image_resizer_path = configs['image_resizer_path']
             encoder_path = configs['encoder_path']
             decoder_path = configs['decoder_path']
             tokenizer_json = configs['tokenizer_json']
-            self.formula_recognizer = LatexOCR(image_resizer_path = image_resizer_path, encoder_path = encoder_path, decoder_path = decoder_path, tokenizer_json = tokenizer_json)
+            self.formula_recognizer = LaTeXOCR(image_resizer_path = image_resizer_path, encoder_path = encoder_path, decoder_path = decoder_path, tokenizer_json = tokenizer_json)
 
     def __call__(self, image):
         """
